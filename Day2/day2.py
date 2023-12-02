@@ -9,8 +9,7 @@ def separateColors(colors):
     stripped=list(map(str.strip, separate))
     return stripped
 
-
-def validGame(separatedColors)->bool:
+def validGame(separatedColors) -> bool:
     for color in separatedColors:
         number, c = color.split(' ')
         if colorSet[c] < int(number):
@@ -31,10 +30,10 @@ with open('input.txt') as f:
         line = f.readline()
         if not line:
             break
-        Game,colors=line.split(':')
+        game,colors=line.split(':')
         separatedColors=separateColors(colors)
         if validGame(separatedColors):
-            qOneAnswer+=int(Game[4:])
+            qOneAnswer += int(game[4:])
         qTwoAnswer += fewestNumberOfCubes(separatedColors)
     print(f'Question One Answer is: {qOneAnswer}')
     print(f'Question Two Answer is: {qTwoAnswer}')
